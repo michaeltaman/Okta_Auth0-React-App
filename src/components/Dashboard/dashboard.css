@@ -1,0 +1,9 @@
+.dashboard {
+
+}
+
+@media screen and (max-width: 600px) {
+    .comment-mobile {
+      width: 90%;
+    }
+  }

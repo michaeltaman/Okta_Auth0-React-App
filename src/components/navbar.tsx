@@ -169,7 +169,7 @@ import { useAuth0 } from "@auth0/auth0-react";
       </ActionIcon>
             </Box>
 
-            { !isAuthenticated && <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
+            { !isAuthenticated && <Group sx={{ height: '100%' }} spacing={0}>
               <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
                   <a  className={classes.link}>
@@ -214,7 +214,7 @@ import { useAuth0 } from "@auth0/auth0-react";
               </HoverCard>
             </Group>  }
 
-            <Group className={classes.hiddenMobile}>
+            <Group>
               {!isAuthenticated && <Button onClick={() => loginWithRedirect({})} variant="default">Log in</Button>}
 
               {isAuthenticated && <UserMenu/> }

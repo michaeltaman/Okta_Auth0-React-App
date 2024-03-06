@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { MantineProvider, ColorSchemeProvider, ColorScheme } from '@mantine/core';
 import { useState } from 'react';
 import { Footer } from './components/footer';
-import Dashboard  from './components/dashboard';
+import Dashboard  from './components/Dashboard/dashboard';
 import { useAuth0 } from "@auth0/auth0-react";
 import { HeroText } from './components/hero';
 import Loading from './components/Loading';
