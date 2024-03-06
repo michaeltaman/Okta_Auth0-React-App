@@ -154,7 +154,7 @@ import React, { useState, useEffect } from 'react';
 
     //--------------
     const calculateHoverCardWidth = () => {
-      const smallerDimension = Math.min(window.innerHeight, window.innerWidth);
+      const smallerDimension = Math.min(window.screen.availWidth, window.screen.availHeight);
       return smallerDimension <= 768 ? smallerDimension - 40 : 600;
     };
 
@@ -162,10 +162,7 @@ import React, { useState, useEffect } from 'react';
 
     useEffect(() => {
       const handleResize = () => {
-        // Timeout is needed because dimensions are not immediately updated after orientation change
-        setTimeout(() => {
-          setHoverCardWidth(calculateHoverCardWidth());
-        }, 200);
+        setHoverCardWidth(calculateHoverCardWidth());
       };
 
       window.addEventListener('resize', handleResize);
@@ -177,7 +174,6 @@ import React, { useState, useEffect } from 'react';
         window.removeEventListener('orientationchange', handleResize);
       };
     }, []);
-
     //---------------
 
     return (
