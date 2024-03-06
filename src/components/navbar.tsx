@@ -152,7 +152,12 @@ import React, { useState, useEffect } from 'react';
       </UnstyledButton>
     ));
 
-    const calculateHoverCardWidth = () => window.innerWidth <= 768 ? window.innerWidth - 40 : 600;
+    //--------------
+    const calculateHoverCardWidth = () => {
+      const smallerDimension = Math.min(window.innerHeight, window.innerWidth);
+      return smallerDimension <= 768 ? smallerDimension - 40 : 600;
+    };
+
     const [hoverCardWidth, setHoverCardWidth] = useState(calculateHoverCardWidth());
 
     useEffect(() => {
@@ -165,6 +170,7 @@ import React, { useState, useEffect } from 'react';
       // Clean up event listener on component unmount
       return () => window.removeEventListener('resize', handleResize);
     }, []);
+    //---------------
 
     return (
       <Box pb={120}>
