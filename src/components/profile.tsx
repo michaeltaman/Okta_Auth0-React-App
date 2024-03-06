@@ -29,7 +29,7 @@ const Profile = () => {
     const profileLink = provider === 'github'
         ? `https://github.com/${user.nickname}?tab=repositories`
         : provider === 'linkedin'
-        ? `https://www.linkedin.com/feed`
+        ? `https://www.linkedin.com/me?trk=p_mwlite_feed_updates-secondary_nav`
         : '#';
 
     return(

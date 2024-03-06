@@ -170,7 +170,7 @@ import { useAuth0 } from "@auth0/auth0-react";
             </Box>
 
             { !isAuthenticated && <Group sx={{ height: '100%' }} spacing={0}>
-              <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
+              <HoverCard width={500} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
                   <a  className={classes.link}>
                     <Center inline>
