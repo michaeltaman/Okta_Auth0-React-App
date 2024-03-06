@@ -162,14 +162,22 @@ import React, { useState, useEffect } from 'react';
 
     useEffect(() => {
       const handleResize = () => {
-        setHoverCardWidth(calculateHoverCardWidth());
+        // Timeout is needed because dimensions are not immediately updated after orientation change
+        setTimeout(() => {
+          setHoverCardWidth(calculateHoverCardWidth());
+        }, 200);
       };
 
       window.addEventListener('resize', handleResize);
+      window.addEventListener('orientationchange', handleResize);
 
       // Clean up event listener on component unmount
-      return () => window.removeEventListener('resize', handleResize);
+      return () => {
+        window.removeEventListener('resize', handleResize);
+        window.removeEventListener('orientationchange', handleResize);
+      };
     }, []);
+
     //---------------
 
     return (
