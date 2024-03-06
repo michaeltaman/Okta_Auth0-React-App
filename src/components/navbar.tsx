@@ -30,6 +30,7 @@ import {
   } from '@tabler/icons';
 import { UserMenu } from './user-menu';
 import { useAuth0 } from "@auth0/auth0-react";
+import React, { useState, useEffect } from 'react';
 
   const useStyles = createStyles((theme) => ({
     link: {
@@ -151,6 +152,20 @@ import { useAuth0 } from "@auth0/auth0-react";
       </UnstyledButton>
     ));
 
+    const calculateHoverCardWidth = () => window.innerWidth <= 768 ? window.innerWidth - 40 : 600;
+    const [hoverCardWidth, setHoverCardWidth] = useState(calculateHoverCardWidth());
+
+    useEffect(() => {
+      const handleResize = () => {
+        setHoverCardWidth(calculateHoverCardWidth());
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      // Clean up event listener on component unmount
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
       <Box pb={120}>
         <Header height={60} px="md">
@@ -170,7 +185,7 @@ import { useAuth0 } from "@auth0/auth0-react";
             </Box>
 
             { !isAuthenticated && <Group sx={{ height: '100%' }} spacing={0}>
-              <HoverCard width={500} position="bottom" radius="md" shadow="md" withinPortal>
+              <HoverCard width={hoverCardWidth} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
                   <a  className={classes.link}>
                     <Center inline>
