@@ -80,7 +80,7 @@ function Dashboard() {
       <div style={{display:'flex', justifyContent:'center'}}>
 
       <Paper withBorder radius="md" className={`${classes.comment} comment-mobile`}>
-        <Group>
+        <Group style={{ marginLeft: 40}}>
           <Avatar src={CommentHtml.author.image} alt={''} radius="xl" />
           <div>
             <Text size="sm">{CommentHtml.author.name}</Text>
