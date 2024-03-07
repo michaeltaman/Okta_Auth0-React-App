@@ -97,7 +97,7 @@ export const  UserMenu = () => {
           <UnstyledButton
             className={cx(classes.user, { [classes.userActive]: userMenuOpened })}
           >
-            <Group spacing={7}>
+            <Group style={{ marginLeft: 50 }} spacing={7}>
               <Avatar src={user.picture} alt={'michaelt'} radius="xl" size={40} />
               <Text weight={500} size="sm" sx={{ lineHeight: 1 }} mr={3}>
                 {user.name}
