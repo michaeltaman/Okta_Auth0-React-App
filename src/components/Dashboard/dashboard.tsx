@@ -4,7 +4,7 @@ import { useState} from 'react';
 import Loading from "../../components/Loading";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { Dialog, DialogTitle, DialogContent, DialogActions} from "@material-ui/core";
-import { IconLogout } from "@tabler/icons";
+import { AiOutlineLogout } from 'react-icons/ai';
 import './dashboard.css';
 
 const useStyles = createStyles((theme) => ({
@@ -30,8 +30,8 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const CommentHtml =  {
-  postedAt : 'Founder at Concept App',
-  body: 'Hello, you\'re logged in <br/> Welcome to the Concept App. Explore different concepts.' ,
+  postedAt : 'Founder at Secure Concept App ',
+  body: 'Hello, you\'re logged in <br/> Welcome to the Secure Concept App . Explore different concepts.' ,
   author : {
     name: 'Michael Trembovler',
     image: 'https://avatars.githubusercontent.com/u/42732094?v=4'
@@ -62,7 +62,7 @@ function Dashboard() {
   return (
     <div className="dashboard" >
       <Button className="logout-button" onClick={handleBackButtonClick}>
-          <IconLogout size={16} />
+          <AiOutlineLogout size={16} />
       </Button>
       <Dialog
         open={isDialogOpen}

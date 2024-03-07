@@ -1,7 +1,8 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Avatar, Group, Menu, UnstyledButton, createStyles, Text} from "@mantine/core";
-import { IconChevronDown, IconHeart, IconStar, IconMessage, IconSettings, IconSwitchHorizontal, IconLogout, IconPlayerPause, IconTrash, IconUser } from "@tabler/icons";
+import { IconChevronDown, IconHeart, IconStar, IconMessage, IconSettings, IconSwitchHorizontal, IconPlayerPause, IconTrash, IconUser } from "@tabler/icons";
 import { useState } from "react";
+import { AiOutlineLogout } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 
@@ -128,7 +129,7 @@ export const  UserMenu = () => {
             Change account
           </Menu.Item>
           <Link to="/logout">
-            <Menu.Item onClick={() => logoutWithRedirect()} icon={<IconLogout size={14} stroke={1.5} />}>
+            <Menu.Item onClick={() => logoutWithRedirect()} icon={<AiOutlineLogout size={14} />}>
               Logout
             </Menu.Item>
           </Link>

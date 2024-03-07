@@ -1,4 +1,6 @@
 import { createStyles, Title, Text, Button, Container } from '@mantine/core';
+import { ExitButtonContext } from '../contexts/ExitButtonContext';
+import React, { useContext, useEffect } from 'react';
 
  interface DotsProps extends React.ComponentPropsWithoutRef<'svg'> {
     size?: number;
@@ -206,8 +208,17 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+
+
+
+
 export function HeroText() {
   const { classes } = useStyles();
+  const { setShowExitButton } = useContext(ExitButtonContext);
+
+  useEffect(() => {
+    setShowExitButton(true);
+  }, [setShowExitButton]);
 
   return (
     <Container className={classes.wrapper} size={1400}>
@@ -240,3 +251,5 @@ export function HeroText() {
     </Container>
   );
 }
+
+
