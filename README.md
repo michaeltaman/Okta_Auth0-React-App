@@ -28,3 +28,7 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.
 
+Deploying:
+1) https://developer.auth0.com/resources/guides/spa/react/vercel-deployment
+2) https://developer.auth0.com/resources/guides/web-app/nextjs/vercel-deployment
+
