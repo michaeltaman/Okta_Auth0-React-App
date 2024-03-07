@@ -119,13 +119,19 @@ export const  UserMenu = () => {
 
           <Menu.Label>Settings</Menu.Label>
           <Menu.Item icon={<IconSettings size={14} stroke={1.5} />} disabled>Account settings</Menu.Item>
-          <Menu.Item icon={<IconUser size={14} stroke={1.5} />}>
-            <Link to="/profile">Profile</Link>
-          </Menu.Item>
+          <Link to="/profile">
+            <Menu.Item icon={<IconUser size={14} stroke={1.5} />}>
+              Profile
+            </Menu.Item>
+          </Link>
           <Menu.Item icon={<IconSwitchHorizontal size={14} stroke={1.5} />} disabled>
             Change account
           </Menu.Item>
-          <Menu.Item onClick={() => logoutWithRedirect()} icon={<IconLogout size={14} stroke={1.5} />}>Logout</Menu.Item>
+          <Link to="/logout">
+            <Menu.Item onClick={() => logoutWithRedirect()} icon={<IconLogout size={14} stroke={1.5} />}>
+              Logout
+            </Menu.Item>
+          </Link>
 
           <Menu.Divider />
 
