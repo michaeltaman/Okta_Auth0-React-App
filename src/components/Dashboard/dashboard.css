@@ -7,3 +7,9 @@
       width: 90%;
     }
   }
+
+  .logout-button {
+    position: absolute;
+    top: 12px;
+    left: 63px;
+  }

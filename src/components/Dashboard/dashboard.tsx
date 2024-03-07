@@ -1,8 +1,9 @@
 import { createStyles, Text, Avatar, Group, TypographyStylesProvider, Paper, Button, Notification } from '@mantine/core';
 import { IconCheck } from '@tabler/icons';
-import { useState } from 'react';
+import { useState} from 'react';
 import Loading from "../../components/Loading";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import { Dialog, DialogTitle, DialogContent, DialogActions} from "@material-ui/core";
 import './dashboard.css';
 
 const useStyles = createStyles((theme) => ({
@@ -36,13 +37,43 @@ const CommentHtml =  {
   }
 }
 
+
+
 function Dashboard() {
   const { classes } = useStyles();
   const { user } = useAuth0();
   console.log(user);
   const [showNotification,setShowNotification] = useState(false);
+
+  //------------------------
+  const { logout } = useAuth0();
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const handleBackButtonClick = () => {
+    setDialogOpen(true);
+  };
+
+  const handleLogout = () => {
+    logout({ returnTo: window.location.origin });
+  };
+  //-------------------------
+
   return (
     <div className="dashboard" >
+      <Button className="logout-button" onClick={handleBackButtonClick}>Logout</Button>
+       <Dialog
+        open={isDialogOpen}
+        onClose={() => setDialogOpen(false)}
+      >
+        <DialogTitle>Confirmation</DialogTitle>
+        <DialogContent>Do you want to exit?</DialogContent>
+        <DialogActions>
+          <Button onClick={handleLogout} color="secondary">
+            Yes
+          </Button>
+          <Button onClick={() => setDialogOpen(false)}>No</Button>
+        </DialogActions>
+      </Dialog>
       <div style={{display:'flex', justifyContent:'center'}}>
 
       <Paper withBorder radius="md" className={`${classes.comment} comment-mobile`}>
@@ -68,7 +99,11 @@ function Dashboard() {
 
       </Paper>
 
+
+
+
       </div>
+
     </div>
   );
 }

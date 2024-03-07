@@ -47,19 +47,20 @@ const Profile = () => {
 
             {
               user.email ? (
-                <Group noWrap spacing={10} mt={3}>
+                <Group noWrap spacing={15} mt={3}>
                   <IconAt stroke={1.5} size={16} className={classes.icon} />
                   <Text size="xs" color="dimmed">
                     {user.email}
                   </Text>
                 </Group>
               ) : (
-                <Group noWrap spacing={10} mt={3}>
-                <IconUser size={14} stroke={1.5} />
-                  <Text size="xs" color="dimmed">
-                    <a href={profileLink}>View Profile</a>
-                  </Text>
-                </Group>
+                <a href={profileLink}>
+                  <Group noWrap spacing={15} mt={3}>
+                    <IconUser size={14} stroke={1.5} />
+                    <Text size="xs" color="dimmed">View Profile</Text>
+                  </Group>
+                </a>
+
               )
             }
 
