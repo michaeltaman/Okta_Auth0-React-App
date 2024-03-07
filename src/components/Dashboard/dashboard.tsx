@@ -4,6 +4,7 @@ import { useState} from 'react';
 import Loading from "../../components/Loading";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import { Dialog, DialogTitle, DialogContent, DialogActions} from "@material-ui/core";
+import { AiOutlineLogout } from 'react-icons/ai';
 import './dashboard.css';
 
 const useStyles = createStyles((theme) => ({
@@ -60,8 +61,10 @@ function Dashboard() {
 
   return (
     <div className="dashboard" >
-      <Button className="logout-button" onClick={handleBackButtonClick}>Logout</Button>
-       <Dialog
+      <Button className="logout-button" onClick={handleBackButtonClick}>
+          <AiOutlineLogout size={16} />
+      </Button>
+      <Dialog
         open={isDialogOpen}
         onClose={() => setDialogOpen(false)}
       >
