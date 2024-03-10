@@ -13,20 +13,14 @@ import { ExitButtonContext } from './contexts/ExitButtonContext';
 
 function App() {
   const [showExitButton, setShowExitButton] = useState(false);
-  const { isLoading, error , isAuthenticated } = useAuth0();
+  const { isLoading } = useAuth0();
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light');
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
 
-  if (error) {
-    return <div>Oops... {error.message}</div>;
-  }
-
   if (isLoading) {
     return <Loading />;
   }
-
-
 
   return (
     <ExitButtonContext.Provider value={{ showExitButton, setShowExitButton }}>
@@ -35,9 +29,10 @@ function App() {
           <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
             <Navbar/>
             <Switch>
-              <Route path="/" exact component={ isAuthenticated ? Dashboard : HeroText} />
+              <Route path="/" exact component={HeroText} />
               <Route path="/profile" component={Profile}/>
               <Route path="/dashboard" component={Dashboard}/>
+              <Route path="/logout" component={Dashboard}/>
               <Route path='*' component={() => { return (<div>404 , PAGE NOT FOUND</div>) }}/>
             </Switch>
             <Footer/>
